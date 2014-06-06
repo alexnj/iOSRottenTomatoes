@@ -21,6 +21,8 @@
 		3805F5D9194158750073BBD8 /* iOSRottenTomatoesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3805F5D8194158750073BBD8 /* iOSRottenTomatoesTests.m */; };
 		3805F5E619416C420073BBD8 /* MoviesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3805F5E419416C420073BBD8 /* MoviesListViewController.m */; };
 		3805F5E719416C420073BBD8 /* MoviesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3805F5E519416C420073BBD8 /* MoviesListViewController.xib */; };
+		386EA57619417CFF00B3DA47 /* RottenTomatoesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 386EA57519417CFF00B3DA47 /* RottenTomatoesClient.m */; };
+		E1AF7368D4FF4506ACCE69B9 /* libPods-iOSRottenTomatoes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A15DCEEF3D17404AAC436ADE /* libPods-iOSRottenTomatoes.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		3805F5E319416C420073BBD8 /* MoviesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesListViewController.h; sourceTree = "<group>"; };
 		3805F5E419416C420073BBD8 /* MoviesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesListViewController.m; sourceTree = "<group>"; };
 		3805F5E519416C420073BBD8 /* MoviesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviesListViewController.xib; sourceTree = "<group>"; };
+		386EA57419417CFF00B3DA47 /* RottenTomatoesClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RottenTomatoesClient.h; sourceTree = "<group>"; };
+		386EA57519417CFF00B3DA47 /* RottenTomatoesClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RottenTomatoesClient.m; sourceTree = "<group>"; };
+		A15DCEEF3D17404AAC436ADE /* libPods-iOSRottenTomatoes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSRottenTomatoes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7AC9FCEFFED444CBFB2E078 /* Pods-iOSRottenTomatoes.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSRottenTomatoes.xcconfig"; path = "Pods/Pods-iOSRottenTomatoes.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,7 @@
 				3805F5B6194158750073BBD8 /* CoreGraphics.framework in Frameworks */,
 				3805F5B8194158750073BBD8 /* UIKit.framework in Frameworks */,
 				3805F5B4194158750073BBD8 /* Foundation.framework in Frameworks */,
+				E1AF7368D4FF4506ACCE69B9 /* libPods-iOSRottenTomatoes.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,10 +89,13 @@
 		3805F5A7194158750073BBD8 = {
 			isa = PBXGroup;
 			children = (
+				386EA57419417CFF00B3DA47 /* RottenTomatoesClient.h */,
+				386EA57519417CFF00B3DA47 /* RottenTomatoesClient.m */,
 				3805F5B9194158750073BBD8 /* iOSRottenTomatoes */,
 				3805F5D2194158750073BBD8 /* iOSRottenTomatoesTests */,
 				3805F5B2194158750073BBD8 /* Frameworks */,
 				3805F5B1194158750073BBD8 /* Products */,
+				F7AC9FCEFFED444CBFB2E078 /* Pods-iOSRottenTomatoes.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +115,7 @@
 				3805F5B5194158750073BBD8 /* CoreGraphics.framework */,
 				3805F5B7194158750073BBD8 /* UIKit.framework */,
 				3805F5CC194158750073BBD8 /* XCTest.framework */,
+				A15DCEEF3D17404AAC436ADE /* libPods-iOSRottenTomatoes.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -167,9 +178,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3805F5DC194158750073BBD8 /* Build configuration list for PBXNativeTarget "iOSRottenTomatoes" */;
 			buildPhases = (
+				8AF4C5E135AB40CE943A0841 /* Check Pods Manifest.lock */,
 				3805F5AC194158750073BBD8 /* Sources */,
 				3805F5AD194158750073BBD8 /* Frameworks */,
 				3805F5AE194158750073BBD8 /* Resources */,
+				CA00B26FCF6845528F943280 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,11 +264,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8AF4C5E135AB40CE943A0841 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CA00B26FCF6845528F943280 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-iOSRottenTomatoes-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3805F5AC194158750073BBD8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				386EA57619417CFF00B3DA47 /* RottenTomatoesClient.m in Sources */,
 				3805F5C4194158750073BBD8 /* AppDelegate.m in Sources */,
 				3805F5C0194158750073BBD8 /* main.m in Sources */,
 				3805F5E619416C420073BBD8 /* MoviesListViewController.m in Sources */,
@@ -372,6 +419,7 @@
 		};
 		3805F5DD194158750073BBD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7AC9FCEFFED444CBFB2E078 /* Pods-iOSRottenTomatoes.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -385,6 +433,7 @@
 		};
 		3805F5DE194158750073BBD8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7AC9FCEFFED444CBFB2E078 /* Pods-iOSRottenTomatoes.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -455,6 +504,7 @@
 				3805F5DE194158750073BBD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3805F5DF194158750073BBD8 /* Build configuration list for PBXNativeTarget "iOSRottenTomatoesTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +513,7 @@
 				3805F5E1194158750073BBD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
