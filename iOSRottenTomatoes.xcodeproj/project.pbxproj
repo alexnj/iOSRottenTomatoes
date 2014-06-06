@@ -19,6 +19,8 @@
 		3805F5CF194158750073BBD8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3805F5B7194158750073BBD8 /* UIKit.framework */; };
 		3805F5D7194158750073BBD8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3805F5D5194158750073BBD8 /* InfoPlist.strings */; };
 		3805F5D9194158750073BBD8 /* iOSRottenTomatoesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3805F5D8194158750073BBD8 /* iOSRottenTomatoesTests.m */; };
+		3805F5E619416C420073BBD8 /* MoviesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3805F5E419416C420073BBD8 /* MoviesListViewController.m */; };
+		3805F5E719416C420073BBD8 /* MoviesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3805F5E519416C420073BBD8 /* MoviesListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,9 @@
 		3805F5D4194158750073BBD8 /* iOSRottenTomatoesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOSRottenTomatoesTests-Info.plist"; sourceTree = "<group>"; };
 		3805F5D6194158750073BBD8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3805F5D8194158750073BBD8 /* iOSRottenTomatoesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSRottenTomatoesTests.m; sourceTree = "<group>"; };
+		3805F5E319416C420073BBD8 /* MoviesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesListViewController.h; sourceTree = "<group>"; };
+		3805F5E419416C420073BBD8 /* MoviesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesListViewController.m; sourceTree = "<group>"; };
+		3805F5E519416C420073BBD8 /* MoviesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviesListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +112,7 @@
 		3805F5B9194158750073BBD8 /* iOSRottenTomatoes */ = {
 			isa = PBXGroup;
 			children = (
+				3805F5E219416C230073BBD8 /* View Controllers */,
 				3805F5C2194158750073BBD8 /* AppDelegate.h */,
 				3805F5C3194158750073BBD8 /* AppDelegate.m */,
 				3805F5C5194158750073BBD8 /* Images.xcassets */,
@@ -142,6 +148,16 @@
 				3805F5D5194158750073BBD8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3805F5E219416C230073BBD8 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3805F5E319416C420073BBD8 /* MoviesListViewController.h */,
+				3805F5E419416C420073BBD8 /* MoviesListViewController.m */,
+				3805F5E519416C420073BBD8 /* MoviesListViewController.xib */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +237,7 @@
 			files = (
 				3805F5BE194158750073BBD8 /* InfoPlist.strings in Resources */,
 				3805F5C6194158750073BBD8 /* Images.xcassets in Resources */,
+				3805F5E719416C420073BBD8 /* MoviesListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +258,7 @@
 			files = (
 				3805F5C4194158750073BBD8 /* AppDelegate.m in Sources */,
 				3805F5C0194158750073BBD8 /* main.m in Sources */,
+				3805F5E619416C420073BBD8 /* MoviesListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
