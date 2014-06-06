@@ -10,4 +10,15 @@
 
 @implementation RottenTomatoesClient
 
++ (RottenTomatoesClient *) instance {
+    static dispatch_once_t pred;
+    static RottenTomatoesClient *shared = nil;
+    
+    dispatch_once(&pred, ^{
+        shared = [[RottenTomatoesClient alloc] init];
+    });
+    
+    return shared;
+}
+
 @end
