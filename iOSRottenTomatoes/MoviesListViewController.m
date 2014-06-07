@@ -116,7 +116,6 @@
     mvc.movieDictionary = movie;
     
     [self.navigationController pushViewController:mvc animated:YES];
-
 }
 
 @end
