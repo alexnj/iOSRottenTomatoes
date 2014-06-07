@@ -21,6 +21,8 @@
 		3805F5D9194158750073BBD8 /* iOSRottenTomatoesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3805F5D8194158750073BBD8 /* iOSRottenTomatoesTests.m */; };
 		3805F5E619416C420073BBD8 /* MoviesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3805F5E419416C420073BBD8 /* MoviesListViewController.m */; };
 		3805F5E719416C420073BBD8 /* MoviesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3805F5E519416C420073BBD8 /* MoviesListViewController.xib */; };
+		384A35251943BC4E0017DF8D /* MovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A35231943BC4E0017DF8D /* MovieDetailViewController.m */; };
+		384A35261943BC4E0017DF8D /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 384A35241943BC4E0017DF8D /* MovieDetailViewController.xib */; };
 		386EA57619417CFF00B3DA47 /* RottenTomatoesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 386EA57519417CFF00B3DA47 /* RottenTomatoesClient.m */; };
 		389751F2194275CA0068E414 /* MovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 389751F0194275CA0068E414 /* MovieTableViewCell.m */; };
 		389751F3194275CA0068E414 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389751F1194275CA0068E414 /* MovieTableViewCell.xib */; };
@@ -57,6 +59,9 @@
 		3805F5E319416C420073BBD8 /* MoviesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesListViewController.h; sourceTree = "<group>"; };
 		3805F5E419416C420073BBD8 /* MoviesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesListViewController.m; sourceTree = "<group>"; };
 		3805F5E519416C420073BBD8 /* MoviesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviesListViewController.xib; sourceTree = "<group>"; };
+		384A35221943BC4E0017DF8D /* MovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailViewController.h; sourceTree = "<group>"; };
+		384A35231943BC4E0017DF8D /* MovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailViewController.m; sourceTree = "<group>"; };
+		384A35241943BC4E0017DF8D /* MovieDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
 		386EA57419417CFF00B3DA47 /* RottenTomatoesClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RottenTomatoesClient.h; sourceTree = "<group>"; };
 		386EA57519417CFF00B3DA47 /* RottenTomatoesClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RottenTomatoesClient.m; sourceTree = "<group>"; };
 		389751EF194275CA0068E414 /* MovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieTableViewCell.h; path = ../MovieTableViewCell.h; sourceTree = "<group>"; };
@@ -175,6 +180,9 @@
 				3805F5E319416C420073BBD8 /* MoviesListViewController.h */,
 				3805F5E419416C420073BBD8 /* MoviesListViewController.m */,
 				3805F5E519416C420073BBD8 /* MoviesListViewController.xib */,
+				384A35221943BC4E0017DF8D /* MovieDetailViewController.h */,
+				384A35231943BC4E0017DF8D /* MovieDetailViewController.m */,
+				384A35241943BC4E0017DF8D /* MovieDetailViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -256,6 +264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				384A35261943BC4E0017DF8D /* MovieDetailViewController.xib in Resources */,
 				3805F5BE194158750073BBD8 /* InfoPlist.strings in Resources */,
 				3805F5C6194158750073BBD8 /* Images.xcassets in Resources */,
 				389751F3194275CA0068E414 /* MovieTableViewCell.xib in Resources */,
@@ -311,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				384A35251943BC4E0017DF8D /* MovieDetailViewController.m in Sources */,
 				386EA57619417CFF00B3DA47 /* RottenTomatoesClient.m in Sources */,
 				3805F5C4194158750073BBD8 /* AppDelegate.m in Sources */,
 				3805F5C0194158750073BBD8 /* main.m in Sources */,

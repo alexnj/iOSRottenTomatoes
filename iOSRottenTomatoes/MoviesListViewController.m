@@ -9,6 +9,7 @@
 #import "MoviesListViewController.h"
 #import "RottenTomatoesClient.h"
 #import "MovieTableViewCell.h"
+#import "MovieDetailViewController.h"
 
 @interface MoviesListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -106,6 +107,16 @@
     NSURL *url = [[NSURL alloc] initWithString:movie[@"posters"][@"thumbnail"]];
     [cell.movieThumbnail setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder"]];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *movie = self.moviesArray[indexPath.row];
+
+    MovieDetailViewController *mvc = [[MovieDetailViewController alloc] init];
+    mvc.movieDictionary = movie;
+    
+    [self.navigationController pushViewController:mvc animated:YES];
+
 }
 
 @end
