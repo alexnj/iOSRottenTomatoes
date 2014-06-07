@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) RottenTomatoesClient* rtClient;
 @property (nonatomic, strong) NSMutableArray *moviesArray;
+@property (nonatomic, retain) UIActivityIndicatorView *activityIndicatorView;
+@property UIRefreshControl *refreshControl;
 @end
 
 @implementation MoviesListViewController
@@ -35,18 +37,34 @@
         id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 
         self.moviesArray = [object objectForKey:@"movies"];
-        
+        [self.activityIndicatorView stopAnimating];
+        [self.tableView setHidden:NO];
         [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
     }];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(loadData) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.rowHeight = 164;
+    self.tableView.rowHeight = 95;
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.tableView.hidden = YES;
+    
+    // Setting Up Activity Indicator View
+    self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityIndicatorView.hidesWhenStopped = YES;
+    self.activityIndicatorView.center = self.view.center;
+    [self.view addSubview:self.activityIndicatorView];
+    [self.activityIndicatorView startAnimating];
+
     
     [self loadData];
     
@@ -74,6 +92,10 @@
     NSDictionary *movie = self.moviesArray[indexPath.row];
     NSLog(@"%@",movie);
     cell.nameLabel.text = movie[@"title"];
+;
+    
+    NSURL *url = [[NSURL alloc] initWithString:movie[@"posters"][@"thumbnail"]];
+    [cell.movieThumbnail setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder"]];
     return cell;
 }
 
