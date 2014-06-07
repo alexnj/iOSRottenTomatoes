@@ -16,7 +16,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     MoviesListViewController *vc = [[MoviesListViewController alloc] init];
-    self.window.rootViewController = vc;
+    UINavigationController *nvc = [[UINavigationController alloc]initWithRootViewController:vc];
+    
+    self.window.rootViewController = nvc;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

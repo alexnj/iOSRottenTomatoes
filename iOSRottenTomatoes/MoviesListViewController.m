@@ -49,6 +49,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.title = @"Box office";
 
     // Implements pull to refresh on the table view.
     self.refreshControl = [[UIRefreshControl alloc] init];
