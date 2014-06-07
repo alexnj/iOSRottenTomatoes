@@ -40,6 +40,8 @@
         [self.activityIndicatorView stopAnimating];
         [self.tableView setHidden:NO];
         [self.tableView reloadData];
+
+        // Stop pull to refresh spinner.
         [self.refreshControl endRefreshing];
     }];
 }
@@ -48,23 +50,30 @@
 {
     [super viewDidLoad];
 
+    // Implements pull to refresh on the table view.
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(loadData) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
     
+    // Point table view data source and delegates to this class itself.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    // A fixed row height is necessary because Apple cant jackshit?
     self.tableView.rowHeight = 95;
+    
+    // WTF is this?
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    // Hide table while data is being fetched.
     self.tableView.hidden = YES;
     
-    // Setting Up Activity Indicator View
+    // Setting Up Activity Indicator View to show spinner while loading.
     self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.activityIndicatorView.hidesWhenStopped = YES;
     self.activityIndicatorView.center = self.view.center;
     [self.view addSubview:self.activityIndicatorView];
     [self.activityIndicatorView startAnimating];
-
     
     [self loadData];
     
@@ -72,8 +81,6 @@
     
     UINib *tableViewNib = [UINib nibWithNibName:@"MovieTableViewCell" bundle:nil];
     [self.tableView registerNib:tableViewNib forCellReuseIdentifier:@"MovieTableViewCell"];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
