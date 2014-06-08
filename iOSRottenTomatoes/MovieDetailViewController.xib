@@ -23,18 +23,22 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="DRZ-W1-XYl">
-                            <rect key="frame" x="20" y="137" width="280" height="21"/>
+                            <rect key="frame" x="20" y="217" width="280" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lfl-w4-ihD">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                            <rect key="frame" x="0.0" y="20" width="320" height="150"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="W2H-y3-aSS"/>
+                                <constraint firstAttribute="width" constant="320" id="wDZ-im-3Zn"/>
+                            </constraints>
                         </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="2eI-GU-kiU">
-                            <rect key="frame" x="20" y="172" width="280" height="21"/>
+                            <rect key="frame" x="20" y="246" width="280" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="FvE-AM-eWM"/>
@@ -44,13 +48,13 @@
                         </label>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="lfl-w4-ihD" firstAttribute="top" secondItem="qxt-iq-cse" secondAttribute="top" id="3Gh-70-Xxf"/>
+                        <constraint firstAttribute="trailing" secondItem="lfl-w4-ihD" secondAttribute="trailing" id="6nl-OO-gW8"/>
                         <constraint firstAttribute="trailing" secondItem="DRZ-W1-XYl" secondAttribute="trailing" constant="20" id="ALs-6h-SXX"/>
+                        <constraint firstItem="DRZ-W1-XYl" firstAttribute="top" secondItem="lfl-w4-ihD" secondAttribute="bottom" constant="20" id="AnZ-EJ-8cf"/>
                         <constraint firstItem="DRZ-W1-XYl" firstAttribute="leading" secondItem="qxt-iq-cse" secondAttribute="leading" constant="20" id="CLM-fN-lch"/>
                         <constraint firstItem="2eI-GU-kiU" firstAttribute="top" secondItem="DRZ-W1-XYl" secondAttribute="bottom" constant="8" id="CiU-X3-K4z"/>
-                        <constraint firstAttribute="trailing" secondItem="lfl-w4-ihD" secondAttribute="trailing" id="Djc-w0-YJE"/>
                         <constraint firstItem="2eI-GU-kiU" firstAttribute="leading" secondItem="qxt-iq-cse" secondAttribute="leading" constant="20" id="gWv-AS-DKQ"/>
-                        <constraint firstItem="DRZ-W1-XYl" firstAttribute="top" secondItem="lfl-w4-ihD" secondAttribute="bottom" constant="14" id="jLZ-yN-q2u"/>
+                        <constraint firstItem="lfl-w4-ihD" firstAttribute="top" secondItem="qxt-iq-cse" secondAttribute="top" constant="20" id="lUd-fC-qvY"/>
                         <constraint firstAttribute="bottom" secondItem="2eI-GU-kiU" secondAttribute="bottom" constant="20" id="qwJ-xN-ASi"/>
                         <constraint firstItem="lfl-w4-ihD" firstAttribute="leading" secondItem="qxt-iq-cse" secondAttribute="leading" id="sne-GS-w0C"/>
                         <constraint firstAttribute="trailing" secondItem="2eI-GU-kiU" secondAttribute="trailing" constant="20" id="vtj-TG-9at"/>

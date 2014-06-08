@@ -49,8 +49,7 @@
     [self.errorNotice dismissNotice];
     [self.activityIndicatorView startAnimating];
     
-//    NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
-    NSString *url = @"http://localhost:8000/test";
+    NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -136,7 +135,7 @@
         cell.movieThumbnail.image = [UIImage imageWithData:data];
         CATransition *transition = [CATransition animation];
         transition.type = kCATransitionFade; // there are other types but this is the nicest
-        transition.duration = 1; // set the duration that you like
+        transition.duration = 0.5;
         transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
         [cell.movieThumbnail.layer addAnimation:transition forKey:nil];
     }];
