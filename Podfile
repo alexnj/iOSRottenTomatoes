@@ -3,6 +3,7 @@ platform :ios, "7.0"
 
 target "iOSRottenTomatoes" do
     pod 'AFNetworking'
+    pod 'NoticeView'
 end
 
 target "iOSRottenTomatoesTests" do

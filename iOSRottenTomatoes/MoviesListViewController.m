@@ -10,6 +10,7 @@
 #import "RottenTomatoesClient.h"
 #import "MovieTableViewCell.h"
 #import "MovieDetailViewController.h"
+#import "WBErrorNoticeView.h"
 
 @interface MoviesListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) NSMutableArray *moviesArray;
 @property (nonatomic, retain) UIActivityIndicatorView *activityIndicatorView;
 @property UIRefreshControl *refreshControl;
+@property (nonatomic, retain) WBErrorNoticeView *errorNotice;
 @end
 
 @implementation MoviesListViewController
@@ -30,20 +32,40 @@
     return self;
 }
 
+- (void)showNetworkError {
+    [self.errorNotice setTitle:NSLocalizedString(@"Network Error", nil)];
+    [self.errorNotice setMessage:NSLocalizedString(@"Unable to reach Rotten Tomatoes. Tap here to retry.", nil)];
+    [self.errorNotice show];
+    [self.errorNotice setDismissalBlock:^(BOOL dismissedInteractively) {
+        if (dismissedInteractively) {
+            [self loadData];
+        };
+    }];
+}
+
 - (void)loadData {
+    [self.errorNotice dismissNotice];
+    [self.activityIndicatorView startAnimating];
+    
     NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 
-        self.moviesArray = [object objectForKey:@"movies"];
         [self.activityIndicatorView stopAnimating];
-        [self.tableView setHidden:NO];
-        [self.tableView reloadData];
-
         // Stop pull to refresh spinner.
         [self.refreshControl endRefreshing];
+        
+        self.moviesArray = [object objectForKey:@"movies"];
+
+        if (connectionError || !self.moviesArray.count ) {
+            [self showNetworkError];
+            return;
+        }
+        
+        [self.tableView setHidden:NO];
+        [self.tableView reloadData];
     }];
 }
 
@@ -51,7 +73,11 @@
 {
     [super viewDidLoad];
     
-    self.title = @"Box office";
+    self.title = @"Movies";
+
+    self.errorNotice = [WBErrorNoticeView errorNoticeInView:self.view title:@"" message:@""];
+    [self.errorNotice setOriginY:self.navigationController.navigationBar.frame.size.height + self.navigationController.navigationBar.frame.origin.y];
+    [self.errorNotice setSticky:YES];
 
     // Implements pull to refresh on the table view.
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -65,9 +91,6 @@
     // A fixed row height is necessary because Apple cant jackshit?
     self.tableView.rowHeight = 95;
     
-    // WTF is this?
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
     // Hide table while data is being fetched.
     self.tableView.hidden = YES;
     
@@ -76,7 +99,6 @@
     self.activityIndicatorView.hidesWhenStopped = YES;
     self.activityIndicatorView.center = self.view.center;
     [self.view addSubview:self.activityIndicatorView];
-    [self.activityIndicatorView startAnimating];
     
     [self loadData];
     

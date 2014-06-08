@@ -23,6 +23,7 @@
 		3805F5E719416C420073BBD8 /* MoviesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3805F5E519416C420073BBD8 /* MoviesListViewController.xib */; };
 		384A35251943BC4E0017DF8D /* MovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384A35231943BC4E0017DF8D /* MovieDetailViewController.m */; };
 		384A35261943BC4E0017DF8D /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 384A35241943BC4E0017DF8D /* MovieDetailViewController.xib */; };
+		384A35281943DC860017DF8D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384A35271943DC860017DF8D /* QuartzCore.framework */; };
 		386EA57619417CFF00B3DA47 /* RottenTomatoesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 386EA57519417CFF00B3DA47 /* RottenTomatoesClient.m */; };
 		389751F2194275CA0068E414 /* MovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 389751F0194275CA0068E414 /* MovieTableViewCell.m */; };
 		389751F3194275CA0068E414 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389751F1194275CA0068E414 /* MovieTableViewCell.xib */; };
@@ -62,6 +63,7 @@
 		384A35221943BC4E0017DF8D /* MovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailViewController.h; sourceTree = "<group>"; };
 		384A35231943BC4E0017DF8D /* MovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailViewController.m; sourceTree = "<group>"; };
 		384A35241943BC4E0017DF8D /* MovieDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
+		384A35271943DC860017DF8D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		386EA57419417CFF00B3DA47 /* RottenTomatoesClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RottenTomatoesClient.h; sourceTree = "<group>"; };
 		386EA57519417CFF00B3DA47 /* RottenTomatoesClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RottenTomatoesClient.m; sourceTree = "<group>"; };
 		389751EF194275CA0068E414 /* MovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieTableViewCell.h; path = ../MovieTableViewCell.h; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				384A35281943DC860017DF8D /* QuartzCore.framework in Frameworks */,
 				3805F5B6194158750073BBD8 /* CoreGraphics.framework in Frameworks */,
 				3805F5B8194158750073BBD8 /* UIKit.framework in Frameworks */,
 				3805F5B4194158750073BBD8 /* Foundation.framework in Frameworks */,
@@ -121,6 +124,7 @@
 		3805F5B2194158750073BBD8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				384A35271943DC860017DF8D /* QuartzCore.framework */,
 				3805F5B3194158750073BBD8 /* Foundation.framework */,
 				3805F5B5194158750073BBD8 /* CoreGraphics.framework */,
 				3805F5B7194158750073BBD8 /* UIKit.framework */,

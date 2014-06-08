@@ -18,11 +18,14 @@ PODS:
   - AFNetworking/UIKit (2.2.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - NoticeView (3.0.7)
 
 DEPENDENCIES:
   - AFNetworking
+  - NoticeView
 
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
+  NoticeView: 357545814931eb92428de54449f405f91c84a1b8
 
 COCOAPODS: 0.33.1
