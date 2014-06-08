@@ -33,12 +33,14 @@
 }
 
 - (void)showNetworkError {
+    __weak typeof(self) weakSelf = self;
+    
     [self.errorNotice setTitle:NSLocalizedString(@"Network Error", nil)];
     [self.errorNotice setMessage:NSLocalizedString(@"Unable to reach Rotten Tomatoes. Tap here to retry.", nil)];
     [self.errorNotice show];
     [self.errorNotice setDismissalBlock:^(BOOL dismissedInteractively) {
         if (dismissedInteractively) {
-            [self loadData];
+            [weakSelf loadData];
         };
     }];
 }
@@ -47,15 +49,18 @@
     [self.errorNotice dismissNotice];
     [self.activityIndicatorView startAnimating];
     
-    NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
+//    NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
+    NSString *url = @"http://localhost:8000/test";
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 
-        [self.activityIndicatorView stopAnimating];
         // Stop pull to refresh spinner.
         [self.refreshControl endRefreshing];
+        
+        // Stop activity indicator as well.
+        [self.activityIndicatorView stopAnimating];
         
         self.moviesArray = [object objectForKey:@"movies"];
 
@@ -126,8 +131,16 @@
     cell.nameLabel.text = movie[@"title"];
 ;
     
-    NSURL *url = [[NSURL alloc] initWithString:movie[@"posters"][@"thumbnail"]];
-    [cell.movieThumbnail setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    NSString *imageUrl = movie[@"posters"][@"thumbnail"];
+    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        cell.movieThumbnail.image = [UIImage imageWithData:data];
+        CATransition *transition = [CATransition animation];
+        transition.type = kCATransitionFade; // there are other types but this is the nicest
+        transition.duration = 1; // set the duration that you like
+        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        [cell.movieThumbnail.layer addAnimation:transition forKey:nil];
+    }];
+
     return cell;
 }
 
