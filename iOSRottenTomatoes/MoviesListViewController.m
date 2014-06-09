@@ -53,14 +53,19 @@
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-
+        
         // Stop pull to refresh spinner.
         [self.refreshControl endRefreshing];
         
         // Stop activity indicator as well.
         [self.activityIndicatorView stopAnimating];
         
+        if (connectionError) {
+            [self showNetworkError];
+            return;
+        }
+
+        id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         self.moviesArray = [object objectForKey:@"movies"];
 
         if (connectionError || !self.moviesArray.count ) {
