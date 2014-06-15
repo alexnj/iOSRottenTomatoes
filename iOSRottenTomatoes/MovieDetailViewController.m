@@ -27,6 +27,12 @@
 }
 
 - (void)finishedLoadingPosterImage:(UIImage *)image {
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionFade;
+    transition.duration = 0.5;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    [self.moviePosterImageView.layer addAnimation:transition forKey:nil];
+
     self.moviePosterImageView.image = image;
 }
 
