@@ -19,6 +19,7 @@
 @property (nonatomic, retain) UIActivityIndicatorView *activityIndicatorView;
 @property UIRefreshControl *refreshControl;
 @property (nonatomic, retain) WBErrorNoticeView *errorNotice;
+@property UIView *selectionColor;
 @end
 
 @implementation MoviesListViewController
@@ -84,6 +85,9 @@
     
     self.title = @"Movies";
 
+    self.selectionColor = [[UIView alloc] init];
+    self.selectionColor.backgroundColor = [UIColor colorWithRed:(255/255.0) green:(247/255.0) blue:(235/255.0) alpha:1];
+
     self.errorNotice = [WBErrorNoticeView errorNoticeInView:self.view title:@"" message:@""];
     [self.errorNotice setOriginY:self.navigationController.navigationBar.frame.size.height + self.navigationController.navigationBar.frame.origin.y];
     [self.errorNotice setSticky:YES];
@@ -131,6 +135,8 @@
     
     NSDictionary *movie = self.moviesArray[indexPath.row];
     cell.movie = movie;
+    
+    cell.selectedBackgroundView = self.selectionColor;
 
     return cell;
 }
@@ -141,6 +147,7 @@
     MovieDetailViewController *mvc = [[MovieDetailViewController alloc] init];
     mvc.movieDictionary = movie;
     
+    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:NO];
     [self.navigationController pushViewController:mvc animated:YES];
 }
 
