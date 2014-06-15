@@ -46,7 +46,7 @@
 
 - (void)setMovie:(NSDictionary *)movie {
     self.movieNameLabel.text = movie[@"title"];
-    
+
     NSString *imageUrl = movie[@"posters"][@"thumbnail"];
 
     [[TMDiskCache sharedCache] objectForKey:imageUrl
@@ -55,17 +55,18 @@
                   UIImage *image = (UIImage *)object;
                   [self setImageOnMainThread:image];
                   
-                  NSLog(@"image loaded from cache: %@", imageUrl);
+                  NSLog(@"image loaded from cache: %@ ", imageUrl);
                   return;
               }
               
               [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
 
-                  // Write to cache.
-                  [[TMDiskCache sharedCache] setObject:self.thumbnailImageView.image forKey:imageUrl block:nil];
                   UIImage *image = [UIImage imageWithData:data];
 
-                  NSLog(@"image loaded from network: %@", imageUrl);
+                  // Write to cache.
+                  [[TMDiskCache sharedCache] setObject:image forKey:imageUrl block:nil];
+
+                  NSLog(@"image loaded from network, saved to cache : %@", imageUrl);
                   
                   [self setImageOnMainThread:image];
               }];
