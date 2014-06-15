@@ -174,6 +174,8 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     NSLog(@"text: %@", searchText);
-    [self loadData:searchText];
+    
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    [self performSelector:@selector(loadData:) withObject:searchText afterDelay:0.5];
 }
 @end
