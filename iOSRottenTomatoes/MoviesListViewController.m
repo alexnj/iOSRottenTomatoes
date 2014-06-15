@@ -12,6 +12,9 @@
 #import "MovieDetailViewController.h"
 #import "WBErrorNoticeView.h"
 
+#define TAB_BOXOFFICE 1
+#define TAB_DVDS 2
+
 @interface MoviesListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) RottenTomatoesClient* rtClient;
@@ -20,6 +23,7 @@
 @property UIRefreshControl *refreshControl;
 @property (nonatomic, retain) WBErrorNoticeView *errorNotice;
 @property UIView *selectionColor;
+@property (weak, nonatomic) IBOutlet UITabBar *tabBar;
 @end
 
 @implementation MoviesListViewController
@@ -45,12 +49,21 @@
         };
     }];
 }
+- (NSString *)getApiUrl {
+    UITabBarItem *tab = [self.tabBar selectedItem];
+    if (tab.tag == TAB_BOXOFFICE) {
+        return @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
+    }
+    else {
+        return @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
+    }
+}
 
 - (void)loadData {
     [self.errorNotice dismissNotice];
     [self.activityIndicatorView startAnimating];
     
-    NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
+    NSString *url = [self getApiUrl];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -82,6 +95,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    [self.tabBar setSelectedItem:[self.tabBar.items objectAtIndex:0]];
     
     self.title = @"Movies";
 
@@ -149,6 +164,10 @@
     
     [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:NO];
     [self.navigationController pushViewController:mvc animated:YES];
+}
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    [self loadData];
 }
 
 @end

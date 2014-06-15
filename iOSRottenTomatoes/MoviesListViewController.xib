@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MoviesListViewController">
             <connections>
+                <outlet property="tabBar" destination="DKZ-zR-m7P" id="hNW-jO-0Lv"/>
                 <outlet property="tableView" destination="fck-mY-RUF" id="Rxv-5O-Ib3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -15,8 +16,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fck-mY-RUF">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" indicatorStyle="black" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fck-mY-RUF">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -24,11 +25,33 @@
                         <outlet property="delegate" destination="-1" id="dyO-Ab-rH0"/>
                     </connections>
                 </tableView>
+                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DKZ-zR-m7P">
+                    <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <items>
+                        <tabBarItem tag="1" title="Box Office" image="boxoffice-32.png" id="JIf-qE-E10"/>
+                        <tabBarItem tag="2" title="DVDs" image="dvd-32.png" id="gWI-uc-O07"/>
+                    </items>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="mLT-av-PgX"/>
+                    </connections>
+                </tabBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="DKZ-zR-m7P" secondAttribute="bottom" id="Ffm-ci-tdp"/>
+                <constraint firstItem="DKZ-zR-m7P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Sab-h6-6ND"/>
+                <constraint firstAttribute="trailing" secondItem="DKZ-zR-m7P" secondAttribute="trailing" id="WF1-Vh-esu"/>
+                <constraint firstItem="DKZ-zR-m7P" firstAttribute="top" secondItem="fck-mY-RUF" secondAttribute="bottom" id="ZwT-6I-6ML"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="boxoffice-32.png" width="32" height="32"/>
+        <image name="dvd-32.png" width="32" height="32"/>
+    </resources>
 </document>
