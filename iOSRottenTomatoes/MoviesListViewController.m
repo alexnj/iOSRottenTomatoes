@@ -45,12 +45,13 @@
     [self.errorNotice show];
     [self.errorNotice setDismissalBlock:^(BOOL dismissedInteractively) {
         if (dismissedInteractively) {
-            [weakSelf loadData:nil];
+            [weakSelf loadData];
         };
     }];
 }
+
 - (NSString *)getApiUrl:(NSString*) filter {
-    if (filter) {
+    if (![filter isEqualToString:@""]) {
         return [@"http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=g9au4hv6khv6wzvzgt55gpqs&q=" stringByAppendingString:[filter stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet]];
     }
     
@@ -61,6 +62,10 @@
     else {
         return @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
     }
+}
+
+- (void)loadData {
+    [self loadData:@""];
 }
 
 - (void)loadData:(NSString*) filter {
@@ -131,7 +136,7 @@
     self.activityIndicatorView.center = self.view.center;
     [self.view addSubview:self.activityIndicatorView];
     
-    [self loadData:nil];
+    [self loadData];
     
     UINib *tableViewNib = [UINib nibWithNibName:@"MovieTableViewCell" bundle:nil];
     [self.tableView registerNib:tableViewNib forCellReuseIdentifier:@"MovieTableViewCell"];
@@ -169,7 +174,7 @@
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-    [self loadData:nil];
+    [self loadData];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
