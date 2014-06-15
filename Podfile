@@ -4,6 +4,7 @@ platform :ios, "7.0"
 target "iOSRottenTomatoes" do
     pod 'AFNetworking'
     pod 'NoticeView'
+    pod 'TMCache'
 end
 
 target "iOSRottenTomatoesTests" do

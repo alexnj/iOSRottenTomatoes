@@ -19,13 +19,16 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - NoticeView (3.0.7)
+  - TMCache (1.2.0)
 
 DEPENDENCIES:
   - AFNetworking
   - NoticeView
+  - TMCache
 
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
   NoticeView: 357545814931eb92428de54449f405f91c84a1b8
+  TMCache: ea1c509badaf9a1245422aabf3c975b3277ab138
 
 COCOAPODS: 0.33.1
