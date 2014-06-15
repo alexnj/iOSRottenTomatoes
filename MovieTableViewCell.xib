@@ -27,8 +27,8 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="movieThumbnail" destination="L6w-OO-QKB" id="dxs-5J-rZY"/>
-                <outlet property="nameLabel" destination="rlO-ja-Uzw" id="6Lo-hy-pTD"/>
+                <outlet property="movieNameLabel" destination="rlO-ja-Uzw" id="DQl-N7-1pC"/>
+                <outlet property="thumbnailImageView" destination="L6w-OO-QKB" id="gyk-2p-e0L"/>
             </connections>
         </tableViewCell>
     </objects>

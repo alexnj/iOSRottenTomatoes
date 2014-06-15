@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TMCache.h"
 
 @interface MovieTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *movieThumbnail;
-
+@property  (weak, nonatomic) NSDictionary* movie;
 @end

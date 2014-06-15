@@ -11,7 +11,6 @@
 #import "MovieTableViewCell.h"
 #import "MovieDetailViewController.h"
 #import "WBErrorNoticeView.h"
-#import "TMCache.h"
 
 @interface MoviesListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -131,42 +130,7 @@
     MovieTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieTableViewCell" forIndexPath:indexPath];
     
     NSDictionary *movie = self.moviesArray[indexPath.row];
-    NSLog(@"%@",movie);
-    cell.nameLabel.text = movie[@"title"];
-;
- 
-    NSString *imageUrl = movie[@"posters"][@"thumbnail"];
-    
-    // See if image URL is cached first.
-    [[TMDiskCache sharedCache] objectForKey:imageUrl
-                                      block:^(TMDiskCache *cache, NSString *key, id object, NSURL* fileUrl) {
-                                          if (object) {
-                                              
-                                              cell.movieThumbnail.image = (UIImage *)object;
-                                              [[TMCache sharedCache] setObject:cell.movieThumbnail.image forKey:imageUrl block:nil];
-                                              CATransition *transition = [CATransition animation];
-                                              transition.type = kCATransitionFade; // there are other types but this is the nicest
-                                              transition.duration = 0.5;
-                                              transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-                                              [cell.movieThumbnail.layer addAnimation:transition forKey:nil];
-                                              
-                                              NSLog(@"image loaded from cache: %f", cell.movieThumbnail.image.scale);
-                                              return;
-                                          }
-                                          
-                                          [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                                              cell.movieThumbnail.image = [UIImage imageWithData:data];
-                                              [[TMDiskCache sharedCache] setObject:cell.movieThumbnail.image forKey:imageUrl block:nil];
-                                              CATransition *transition = [CATransition animation];
-                                              transition.type = kCATransitionFade; // there are other types but this is the nicest
-                                              transition.duration = 0.5;
-                                              transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-                                              [cell.movieThumbnail.layer addAnimation:transition forKey:nil];
-                                          }];
-                                          
-                                          
-                                      }];
-
+    cell.movie = movie;
 
     return cell;
 }
