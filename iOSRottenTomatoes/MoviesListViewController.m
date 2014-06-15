@@ -97,7 +97,6 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    // A fixed row height is necessary because Apple cant jackshit?
     self.tableView.rowHeight = 95;
     
     // Hide table while data is being fetched.

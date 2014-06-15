@@ -26,15 +26,38 @@
     return self;
 }
 
+- (void)finishedLoadingPosterImage:(UIImage *)image {
+    self.moviePosterImageView.image = image;
+}
+
+- (void)loadLowQualityPoster:(NSDictionary*)imageArray {
+    NSString* lowResImageUrl = imageArray[@"profile"];
+    NSString* highResImageUrl = imageArray[@"original"];
+    
+    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:lowResImageUrl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        UIImage *lowQualityPosterImage = [UIImage imageWithData:data];
+
+        // Update image on the main thread and wait until it returns.
+        [self performSelectorOnMainThread:@selector(finishedLoadingPosterImage:) withObject:lowQualityPosterImage waitUntilDone:YES];
+
+        // Upgrade to higher quality now.
+        [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:highResImageUrl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+            UIImage *highQualityPosterImage = [UIImage imageWithData:data];
+
+            // Update image on the main thread and wait until it returns.
+            [self performSelectorOnMainThread:@selector(finishedLoadingPosterImage:) withObject:highQualityPosterImage waitUntilDone:YES];
+        }];
+
+    }];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    NSString *imageUrl = self.movieDictionary[@"posters"][@"detailed"];
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        self.moviePosterImageView.image = [UIImage imageWithData:data];
-    }];
-
+    // Start loading image in a background thread.
+    [self performSelectorInBackground:@selector(loadLowQualityPoster:) withObject:self.movieDictionary[@"posters"]];
+    
     self.movieTitleLabel.text = self.movieDictionary[@"title"];
     self.movieSummaryLabel.text = self.movieDictionary[@"synopsis"];
     

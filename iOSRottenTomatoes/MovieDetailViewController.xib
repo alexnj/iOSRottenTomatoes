@@ -18,26 +18,26 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qxt-iq-cse">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxt-iq-cse">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="DRZ-W1-XYl">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="DRZ-W1-XYl">
                             <rect key="frame" x="20" y="217" width="280" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lfl-w4-ihD">
-                            <rect key="frame" x="0.0" y="20" width="320" height="150"/>
+                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lfl-w4-ihD">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="W2H-y3-aSS"/>
-                                <constraint firstAttribute="width" constant="320" id="wDZ-im-3Zn"/>
+                                <constraint firstAttribute="width" constant="320" id="6go-rm-3nd"/>
+                                <constraint firstAttribute="height" constant="150" id="tyG-Me-PLK"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="2eI-GU-kiU">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="2eI-GU-kiU">
                             <rect key="frame" x="20" y="246" width="280" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
@@ -48,14 +48,14 @@
                         </label>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="lfl-w4-ihD" secondAttribute="trailing" id="6nl-OO-gW8"/>
                         <constraint firstAttribute="trailing" secondItem="DRZ-W1-XYl" secondAttribute="trailing" constant="20" id="ALs-6h-SXX"/>
                         <constraint firstItem="DRZ-W1-XYl" firstAttribute="top" secondItem="lfl-w4-ihD" secondAttribute="bottom" constant="20" id="AnZ-EJ-8cf"/>
                         <constraint firstItem="DRZ-W1-XYl" firstAttribute="leading" secondItem="qxt-iq-cse" secondAttribute="leading" constant="20" id="CLM-fN-lch"/>
                         <constraint firstItem="2eI-GU-kiU" firstAttribute="top" secondItem="DRZ-W1-XYl" secondAttribute="bottom" constant="8" id="CiU-X3-K4z"/>
                         <constraint firstItem="2eI-GU-kiU" firstAttribute="leading" secondItem="qxt-iq-cse" secondAttribute="leading" constant="20" id="gWv-AS-DKQ"/>
-                        <constraint firstItem="lfl-w4-ihD" firstAttribute="top" secondItem="qxt-iq-cse" secondAttribute="top" constant="20" id="lUd-fC-qvY"/>
+                        <constraint firstItem="lfl-w4-ihD" firstAttribute="top" secondItem="qxt-iq-cse" secondAttribute="top" id="lUd-fC-qvY"/>
                         <constraint firstAttribute="bottom" secondItem="2eI-GU-kiU" secondAttribute="bottom" constant="20" id="qwJ-xN-ASi"/>
+                        <constraint firstAttribute="trailing" secondItem="lfl-w4-ihD" secondAttribute="trailing" id="rva-uD-dtd"/>
                         <constraint firstItem="lfl-w4-ihD" firstAttribute="leading" secondItem="qxt-iq-cse" secondAttribute="leading" id="sne-GS-w0C"/>
                         <constraint firstAttribute="trailing" secondItem="2eI-GU-kiU" secondAttribute="trailing" constant="20" id="vtj-TG-9at"/>
                     </constraints>
