@@ -45,11 +45,15 @@
     [self.errorNotice show];
     [self.errorNotice setDismissalBlock:^(BOOL dismissedInteractively) {
         if (dismissedInteractively) {
-            [weakSelf loadData];
+            [weakSelf loadData:nil];
         };
     }];
 }
-- (NSString *)getApiUrl {
+- (NSString *)getApiUrl:(NSString*) filter {
+    if (filter) {
+        return [@"http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=g9au4hv6khv6wzvzgt55gpqs&q=" stringByAppendingString:[filter stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet]];
+    }
+    
     UITabBarItem *tab = [self.tabBar selectedItem];
     if (tab.tag == TAB_BOXOFFICE) {
         return @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
@@ -59,11 +63,11 @@
     }
 }
 
-- (void)loadData {
+- (void)loadData:(NSString*) filter {
     [self.errorNotice dismissNotice];
     [self.activityIndicatorView startAnimating];
     
-    NSString *url = [self getApiUrl];
+    NSString *url = [self getApiUrl:filter];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -109,7 +113,7 @@
 
     // Implements pull to refresh on the table view.
     self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(loadData) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(loadData:) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
     
     // Point table view data source and delegates to this class itself.
@@ -127,9 +131,7 @@
     self.activityIndicatorView.center = self.view.center;
     [self.view addSubview:self.activityIndicatorView];
     
-    [self loadData];
-    
-//    self.rtClient = [[RottenTomatoesClient alloc] init];
+    [self loadData:nil];
     
     UINib *tableViewNib = [UINib nibWithNibName:@"MovieTableViewCell" bundle:nil];
     [self.tableView registerNib:tableViewNib forCellReuseIdentifier:@"MovieTableViewCell"];
@@ -167,7 +169,11 @@
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-    [self loadData];
+    [self loadData:nil];
 }
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    NSLog(@"text: %@", searchText);
+    [self loadData:searchText];
+}
 @end
