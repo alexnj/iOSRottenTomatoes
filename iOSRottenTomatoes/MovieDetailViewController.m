@@ -67,16 +67,6 @@
     self.movieTitleLabel.text = self.movieDictionary[@"title"];
     self.movieSummaryLabel.text = self.movieDictionary[@"synopsis"];
     
-    CGRect titleLabelBounds = self.movieSummaryLabel.bounds;
-    titleLabelBounds.size.height = CGFLOAT_MAX;
-
-    CGRect minimumTextRect = [self.movieSummaryLabel textRectForBounds:titleLabelBounds limitedToNumberOfLines:2];
-    
-    CGFloat titleLabelHeightDelta = minimumTextRect.size.height - self.movieSummaryLabel.frame.size.height;
-    CGRect titleFrame = self.movieSummaryLabel.frame;
-    titleFrame.size.height += titleLabelHeightDelta;
-    self.movieSummaryLabel.frame = titleFrame;
-
     [self.scrollView setScrollEnabled:YES];
 
 }

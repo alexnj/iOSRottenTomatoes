@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -33,40 +33,37 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="320" id="6go-rm-3nd"/>
-                                <constraint firstAttribute="height" constant="150" id="tyG-Me-PLK"/>
+                                <constraint firstAttribute="height" constant="150" id="NKH-d3-mDU"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="2eI-GU-kiU">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="2eI-GU-kiU">
                             <rect key="frame" x="20" y="246" width="280" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="FvE-AM-eWM"/>
-                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="DRZ-W1-XYl" secondAttribute="trailing" constant="20" id="ALs-6h-SXX"/>
-                        <constraint firstItem="DRZ-W1-XYl" firstAttribute="top" secondItem="lfl-w4-ihD" secondAttribute="bottom" constant="20" id="AnZ-EJ-8cf"/>
-                        <constraint firstItem="DRZ-W1-XYl" firstAttribute="leading" secondItem="qxt-iq-cse" secondAttribute="leading" constant="20" id="CLM-fN-lch"/>
-                        <constraint firstItem="2eI-GU-kiU" firstAttribute="top" secondItem="DRZ-W1-XYl" secondAttribute="bottom" constant="8" id="CiU-X3-K4z"/>
-                        <constraint firstItem="2eI-GU-kiU" firstAttribute="leading" secondItem="qxt-iq-cse" secondAttribute="leading" constant="20" id="gWv-AS-DKQ"/>
-                        <constraint firstItem="lfl-w4-ihD" firstAttribute="top" secondItem="qxt-iq-cse" secondAttribute="top" id="lUd-fC-qvY"/>
-                        <constraint firstAttribute="bottom" secondItem="2eI-GU-kiU" secondAttribute="bottom" constant="20" id="qwJ-xN-ASi"/>
-                        <constraint firstAttribute="trailing" secondItem="lfl-w4-ihD" secondAttribute="trailing" id="rva-uD-dtd"/>
-                        <constraint firstItem="lfl-w4-ihD" firstAttribute="leading" secondItem="qxt-iq-cse" secondAttribute="leading" id="sne-GS-w0C"/>
-                        <constraint firstAttribute="trailing" secondItem="2eI-GU-kiU" secondAttribute="trailing" constant="20" id="vtj-TG-9at"/>
+                        <constraint firstItem="2eI-GU-kiU" firstAttribute="trailing" secondItem="DRZ-W1-XYl" secondAttribute="trailing" id="08G-A0-PVU"/>
+                        <constraint firstAttribute="trailing" secondItem="DRZ-W1-XYl" secondAttribute="trailing" constant="20" symbolic="YES" id="DIO-tk-aRh"/>
+                        <constraint firstItem="DRZ-W1-XYl" firstAttribute="top" secondItem="lfl-w4-ihD" secondAttribute="bottom" constant="67" id="EsD-UO-oIo"/>
+                        <constraint firstItem="lfl-w4-ihD" firstAttribute="centerX" secondItem="qxt-iq-cse" secondAttribute="centerX" id="Fzb-xj-afv"/>
+                        <constraint firstItem="lfl-w4-ihD" firstAttribute="leading" secondItem="qxt-iq-cse" secondAttribute="leading" id="JhM-hp-1Ui"/>
+                        <constraint firstItem="DRZ-W1-XYl" firstAttribute="leading" secondItem="2eI-GU-kiU" secondAttribute="leading" id="LP3-Ab-vEj"/>
+                        <constraint firstItem="lfl-w4-ihD" firstAttribute="top" secondItem="qxt-iq-cse" secondAttribute="top" id="Z9q-Q9-uKz"/>
+                        <constraint firstItem="DRZ-W1-XYl" firstAttribute="centerX" secondItem="lfl-w4-ihD" secondAttribute="centerX" id="enT-87-w1e"/>
+                        <constraint firstItem="2eI-GU-kiU" firstAttribute="top" secondItem="lfl-w4-ihD" secondAttribute="bottom" constant="96" id="hbC-L6-JPF"/>
+                        <constraint firstItem="DRZ-W1-XYl" firstAttribute="leading" secondItem="qxt-iq-cse" secondAttribute="leading" constant="20" symbolic="YES" id="hix-ch-N0U"/>
+                        <constraint firstAttribute="bottom" secondItem="2eI-GU-kiU" secondAttribute="bottom" constant="20" symbolic="YES" id="l1f-Vm-vq5"/>
                     </constraints>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="qxt-iq-cse" secondAttribute="bottom" id="VFp-YT-lRR"/>
-                <constraint firstAttribute="trailing" secondItem="qxt-iq-cse" secondAttribute="trailing" id="ZBN-E2-AIf"/>
-                <constraint firstItem="qxt-iq-cse" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vHX-k7-UHq"/>
-                <constraint firstItem="qxt-iq-cse" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vpm-MZ-701"/>
+                <constraint firstItem="qxt-iq-cse" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0pO-aU-QzT"/>
+                <constraint firstAttribute="bottom" secondItem="qxt-iq-cse" secondAttribute="bottom" id="9UV-Tt-gL1"/>
+                <constraint firstItem="qxt-iq-cse" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NGG-dC-Gpg"/>
+                <constraint firstAttribute="trailing" secondItem="qxt-iq-cse" secondAttribute="trailing" id="jfE-Ir-hhd"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
