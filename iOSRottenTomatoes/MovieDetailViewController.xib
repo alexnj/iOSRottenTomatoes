@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailViewController">
             <connections>
+                <outlet property="imageViewHeightConstraint" destination="NKH-d3-mDU" id="rYO-yG-gbK"/>
+                <outlet property="imageViewTopConstraint" destination="Z9q-Q9-uKz" id="9Mt-Tu-cfQ"/>
                 <outlet property="moviePosterImageView" destination="lfl-w4-ihD" id="1UQ-UT-CgR"/>
                 <outlet property="movieSummaryLabel" destination="2eI-GU-kiU" id="Fii-Y0-MJ6"/>
                 <outlet property="movieTitleLabel" destination="DRZ-W1-XYl" id="0iD-aB-rDH"/>
@@ -22,8 +24,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="DRZ-W1-XYl">
-                            <rect key="frame" x="20" y="217" width="280" height="21"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="DRZ-W1-XYl">
+                            <rect key="frame" x="20" y="170" width="280" height="24"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -37,7 +39,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="2eI-GU-kiU">
-                            <rect key="frame" x="20" y="246" width="280" height="21"/>
+                            <rect key="frame" x="20" y="202" width="280" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="highlightedColor"/>
@@ -46,15 +48,15 @@
                     <constraints>
                         <constraint firstItem="2eI-GU-kiU" firstAttribute="trailing" secondItem="DRZ-W1-XYl" secondAttribute="trailing" id="08G-A0-PVU"/>
                         <constraint firstAttribute="trailing" secondItem="DRZ-W1-XYl" secondAttribute="trailing" constant="20" symbolic="YES" id="DIO-tk-aRh"/>
-                        <constraint firstItem="DRZ-W1-XYl" firstAttribute="top" secondItem="lfl-w4-ihD" secondAttribute="bottom" constant="67" id="EsD-UO-oIo"/>
+                        <constraint firstItem="DRZ-W1-XYl" firstAttribute="top" secondItem="lfl-w4-ihD" secondAttribute="bottom" constant="20" id="EsD-UO-oIo"/>
                         <constraint firstItem="lfl-w4-ihD" firstAttribute="centerX" secondItem="qxt-iq-cse" secondAttribute="centerX" id="Fzb-xj-afv"/>
                         <constraint firstItem="lfl-w4-ihD" firstAttribute="leading" secondItem="qxt-iq-cse" secondAttribute="leading" id="JhM-hp-1Ui"/>
                         <constraint firstItem="DRZ-W1-XYl" firstAttribute="leading" secondItem="2eI-GU-kiU" secondAttribute="leading" id="LP3-Ab-vEj"/>
                         <constraint firstItem="lfl-w4-ihD" firstAttribute="top" secondItem="qxt-iq-cse" secondAttribute="top" id="Z9q-Q9-uKz"/>
                         <constraint firstItem="DRZ-W1-XYl" firstAttribute="centerX" secondItem="lfl-w4-ihD" secondAttribute="centerX" id="enT-87-w1e"/>
-                        <constraint firstItem="2eI-GU-kiU" firstAttribute="top" secondItem="lfl-w4-ihD" secondAttribute="bottom" constant="96" id="hbC-L6-JPF"/>
                         <constraint firstItem="DRZ-W1-XYl" firstAttribute="leading" secondItem="qxt-iq-cse" secondAttribute="leading" constant="20" symbolic="YES" id="hix-ch-N0U"/>
                         <constraint firstAttribute="bottom" secondItem="2eI-GU-kiU" secondAttribute="bottom" constant="20" symbolic="YES" id="l1f-Vm-vq5"/>
+                        <constraint firstItem="2eI-GU-kiU" firstAttribute="top" secondItem="DRZ-W1-XYl" secondAttribute="bottom" constant="8" id="nyU-du-Dag"/>
                     </constraints>
                 </scrollView>
             </subviews>

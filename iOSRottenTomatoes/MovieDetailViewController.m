@@ -12,6 +12,8 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *movieTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *movieSummaryLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewTopConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *moviePosterImageView;
 @end
 
@@ -26,6 +28,16 @@
     return self;
 }
 
+- (void)updateViewConstraints {
+    [super updateViewConstraints];
+    
+    CGFloat newHeight = self.moviePosterImageView.image.size.height/self.moviePosterImageView.image.size.width*320;
+    if (!isnan( newHeight )) {
+        self.imageViewHeightConstraint.constant = newHeight;
+        self.imageViewTopConstraint.constant = -1*newHeight/3;
+    }
+}
+
 - (void)finishedLoadingPosterImage:(UIImage *)image {
     CATransition *transition = [CATransition animation];
     transition.type = kCATransitionFade;
@@ -34,6 +46,7 @@
     [self.moviePosterImageView.layer addAnimation:transition forKey:nil];
 
     self.moviePosterImageView.image = image;
+    [self updateViewConstraints];
 }
 
 - (void)loadLowQualityPoster:(NSDictionary*)imageArray {
