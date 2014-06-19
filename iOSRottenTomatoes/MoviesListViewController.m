@@ -52,15 +52,15 @@
 
 - (NSString *)getApiUrl:(NSString*) filter {
     if (![filter isEqualToString:@""]) {
-        return [@"http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=g9au4hv6khv6wzvzgt55gpqs&q=" stringByAppendingString:[filter stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet]];
+        return [@"http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=yv49qpxe8yzc7w7vbnr48rnr&q=" stringByAppendingString:[filter stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet]];
     }
     
     UITabBarItem *tab = [self.tabBar selectedItem];
     if (tab.tag == TAB_BOXOFFICE) {
-        return @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
+        return @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=yv49qpxe8yzc7w7vbnr48rnr";
     }
     else {
-        return @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
+        return @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=yv49qpxe8yzc7w7vbnr48rnr";
     }
 }
 
